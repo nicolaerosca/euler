@@ -1,6 +1,5 @@
 package com.pff.euler
 
-import scala.io.StdIn
 
 /**
  * By considering the terms in the Fibonacci sequence whose values do not exceed,
@@ -45,16 +44,3 @@ class EvenFibonacci002 {
   }
 }
 
-object Solution {
-
-  def main(args: Array[String]) {
-    val si = StdIn
-
-    val numberOfTestCases = si.readInt
-    val testCases = (1 to numberOfTestCases).map(x => StdIn.readLong).toArray
-
-    val calculator = new EvenFibonacci002
-    val result = calculator.compute(testCases)
-    println(result.mkString("\n"))
-  }
-}
