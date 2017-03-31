@@ -18,22 +18,30 @@ class Multiples001 {
     computeSumForNWithFactor((n-1)/3, 3) + computeSumForNWithFactor((n-1)/5, 5) - computeSumForNWithFactor((n-1)/15, 15)
   }
 
+  /**
+   * 1 + 2 + 3 + ... + n -> n * ( n + 1 ) / 2
+   *
+   * @param n
+   * @param factor
+   * @return
+   */
   def computeSumForNWithFactor(n: Int, factor: Int): Long = {
     n.toLong*(n + 1)/2 * factor
   }
-}
 
+  object Solution {
 
-object Solution {
+    def main(args: Array[String]) {
+      val si = StdIn
 
-  def main(args: Array[String]) {
-    val si = StdIn
+      val numberOfTestCases = si.readInt
+      val testCases = (1 to numberOfTestCases).map(x => StdIn.readInt).toArray
 
-    val numberOfTestCases = si.readInt
-    val testCases = (1 to numberOfTestCases).map(x => StdIn.readInt).toArray
-
-    val calculator = new Multiples001
-    val result = calculator.computeSum(testCases)
-    println(result.mkString("\n"))
+      val calculator = new Multiples001
+      val result = calculator.computeSum(testCases)
+      println(result.mkString("\n"))
+    }
   }
 }
+
+
