@@ -8,25 +8,17 @@ import scala.io.StdIn
  */
 class Multiples001 {
 
-  def computeSum(values: Array[Int]): Array[Int] =  {
-    values.map(computeSumForN(_))
+  def computeSum(values: Array[Int]): Array[Long] =  {
+    values.map(computeSumForN)
   }
 
-  def computeSumForN(n: Int): Int = {
-    var sum = 0
-    for(i <- 0 until n) {
-      if(i % 3 == 0 || i % 5 == 0) {
-        sum+= i
-      }
-    }
-    sum
+  def computeSumForN(n: Int): Long = {
+    computeSumForNWithFactor((n-1)/3, 3) + computeSumForNWithFactor((n-1)/5, 5) - computeSumForNWithFactor((n-1)/15, 15)
   }
 
-  def sum(n: Int, toBeMult: Int): Int = {
-    if(n > 1)
-      n*toBeMult + sum(n-1, toBeMult )
-    else
-      toBeMult
+
+  def computeSumForNWithFactor(n: Int, factor: Int): Long = {
+    n.toLong*(n + 1)/2 * factor
   }
 }
 
