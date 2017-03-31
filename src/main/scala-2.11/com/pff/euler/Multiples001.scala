@@ -4,6 +4,8 @@ package com.pff.euler
 import scala.io.StdIn
 
 /**
+ * Find the sum of all the multiples of  or  below .
+ *
  * @author nicolaerosca
  */
 class Multiples001 {
@@ -15,7 +17,6 @@ class Multiples001 {
   def computeSumForN(n: Int): Long = {
     computeSumForNWithFactor((n-1)/3, 3) + computeSumForNWithFactor((n-1)/5, 5) - computeSumForNWithFactor((n-1)/15, 15)
   }
-
 
   def computeSumForNWithFactor(n: Int, factor: Int): Long = {
     n.toLong*(n + 1)/2 * factor
