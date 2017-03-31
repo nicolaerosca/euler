@@ -14,9 +14,9 @@ class EvenFibonacci002 {
     testCases.map(fibonacci)
   }
 
-//  def sumEvenFibonacci(n: Long): Long = {
-//    fibonacci(n).filter(_ % 2 == 0).sum
-//  }
+  def sumEvenFibonacci(n: Long): Long = {
+    fibonacci(n)
+  }
 
 //  def fibonacci(n: Long): Array[Int] = {
 //    val fibSeq = mutable.MutableList(1, 2)
@@ -29,16 +29,17 @@ class EvenFibonacci002 {
 //  }
 
   def fibonacci(n: Long): Long = {
-    val fibSeq = Array(1, 1)
-    var nextFib = 2
+    var a: Long = 1
+    var b: Long = 1
+    var nextFib: Long = 2
     var sum: Long = 0
     while (nextFib < n) {
-      fibSeq(0) = fibSeq(1)
-      fibSeq(1) = nextFib
+      a = b
+      b = nextFib
       if (nextFib % 2 == 0) {
         sum+= nextFib
       }
-      nextFib = fibSeq(0) + fibSeq(1)
+      nextFib = a + b
     }
     sum
   }

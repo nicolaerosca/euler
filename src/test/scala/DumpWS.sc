@@ -13,7 +13,7 @@ val maxNum: Long = 4 * Math.pow(10, 16).toLong
 
 val ar = Array(1, 2)
 
-calc.fibonacci2(10)
-calc.fibonacci2(100)
-calc.fibonacci2(1000)
-calc.fibonacci2(10000000)
+calc.fibonacci(10)
+calc.fibonacci(100)
+calc.fibonacci(1000)
+calc.fibonacci(maxNum)
