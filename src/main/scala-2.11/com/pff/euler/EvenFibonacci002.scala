@@ -1,6 +1,5 @@
 package com.pff.euler
 
-import scala.collection.mutable
 import scala.io.StdIn
 
 /**
@@ -12,21 +11,36 @@ import scala.io.StdIn
 class EvenFibonacci002 {
 
   def compute(testCases: Array[Long]): Array[Long] = {
-    testCases.map(sumEvenFibonacci)
+    testCases.map(fibonacci)
   }
 
-  def sumEvenFibonacci(n: Long): Long = {
-    fibonacci(n).filter(_ % 2 == 0).sum
-  }
+//  def sumEvenFibonacci(n: Long): Long = {
+//    fibonacci(n).filter(_ % 2 == 0).sum
+//  }
 
-  def fibonacci(n: Long): Array[Int] = {
-    val fibSeq = mutable.MutableList(1, 2)
-    var nextFib = 3
+//  def fibonacci(n: Long): Array[Int] = {
+//    val fibSeq = mutable.MutableList(1, 2)
+//    var nextFib = 3
+//    while (nextFib < n) {
+//      fibSeq += nextFib
+//      nextFib = fibSeq(fibSeq.size - 2) + fibSeq.last
+//    }
+//    fibSeq.toArray
+//  }
+
+  def fibonacci(n: Long): Long = {
+    val fibSeq = Array(1, 1)
+    var nextFib = 2
+    var sum: Long = 0
     while (nextFib < n) {
-      fibSeq += nextFib
-      nextFib = fibSeq(fibSeq.size - 2) + fibSeq.last
+      fibSeq(0) = fibSeq(1)
+      fibSeq(1) = nextFib
+      if (nextFib % 2 == 0) {
+        sum+= nextFib
+      }
+      nextFib = fibSeq(0) + fibSeq(1)
     }
-    fibSeq.toArray
+    sum
   }
 }
 
