@@ -12,7 +12,9 @@ def gaussianPrimes3(n: Int): Int = {
 }
 
 val calc = new MaxPrimeFactor003
-calc.sieveOfEratosthenes(1000)
+//calc.sieveOfEratosthenes(1000)
+//calc.sieveOfEratosthenesBitSet(100)
+
 //
 //gaussianPrimes2(1)
 //gaussianPrimes2(2)
@@ -45,9 +47,12 @@ calc.sieveOfEratosthenes(1000)
 //13195/5/7/13
 //
 //13195/29
-val arr = (0 to 100).toArray
 
-arr(1) = 0
+val realBig: Long = math.pow(10, 12).toLong
 
-arr
+calc.calculateMaxPrime(10)
+calc.calculateMaxPrime(13195)
+calc.calculateMaxPrime(999999937l)
+math.pow(10, 12).toInt
+math.pow(10, 12).toLong
 
