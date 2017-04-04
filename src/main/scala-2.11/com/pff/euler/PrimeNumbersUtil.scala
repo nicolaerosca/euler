@@ -47,4 +47,14 @@ object PrimeNumbersUtil {
   }
 
 
+  def gaussianPrimes(n: Int): Int = {
+    4 * n + 3
+  }
+
+  def gaussianPrimes2(n: Int): Int = {
+    6 * n + 1
+  }
+  def gaussianPrimes3(n: Int): Int = {
+    6 * n - 1
+  }
 }
