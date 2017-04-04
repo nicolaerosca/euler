@@ -1,4 +1,4 @@
-import com.pff.euler.MaxPrimeFactor003
+import com.pff.euler.{PrimeNumbersUtil, MaxPrimeFactor003}
 
 def gaussianPrimes(n: Int): Int = {
   4 * n + 3
@@ -55,4 +55,5 @@ calc.calculateMaxPrime(13195)
 calc.calculateMaxPrime(999999937l)
 math.pow(10, 12).toInt
 math.pow(10, 12).toLong
+
 
