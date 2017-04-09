@@ -1,4 +1,4 @@
-import com.pff.euler.HighlyDivisibleNumber012
+import com.pff.euler.{PrimeNumbersUtil, HighlyDivisibleNumber012}
 
 import scala.collection.mutable.ListBuffer
 
@@ -20,43 +20,18 @@ calc.genTriangleSeries(10000).map(x => {
 calc.genTriangleSeries(1000).last
 calc.getTotalDivisors(calc.sumN(7))
 
-//var i = 1
-//var flag = true
-//while (flag) {
-//  val devisors = calc.getTotalDivisors(calc.sumN(i))
-//  if (devisors > 990) {
-//    println(s"Holy grail !!! $i")
-//    flag = false
-//  }
-//  i += 1
-//}
 
-
-def computeForN(n: Int, i: Int = 1): Int = {
-  val devisors = calc.getTotalDivisors(calc.sumN(i))
-  if (devisors > n) {
-    return n
-  }
-  computeForN(n, i + 1)
+calc.getTotalDivisors(66)
+calc.getDivisors(433)
+calc.getTotalDivisorsNumberTheory(66)
+timer(calc.sumN(1000000), calc.getTotalDivisors)
+timer(calc.sumN(1000000), calc.getTotalDivisorsNumberTheory)
+def timer(n: Long, f: Long => Int): Unit = {
+  val t0=System.currentTimeMillis()
+  println(f(n))
+//  Thread.sleep(19)
+  println(System.currentTimeMillis() - t0)
 }
 
-def computeForN2(n: Int): Long = {
-  var i = 1
-  var flag = true
-  var sum = 1
-  while (flag) {
-    println(sum)
-    val devisors = calc.getTotalDivisors(sum)
-    if (devisors > n) {
-      return sum
-    }
-    i += 1
-    sum = sum + i
-  }
-  -1
-}
-calc.getTotalDivisors(28)
-calc.getDivisors(28)
-
-computeForN2(4)
-calc.sumN(1000)
+Array(103672800, 2031120, 842161320, 2162160, 17907120, 1465813440)
+Array(103672800, 2031120, 842161320, 2162160, 17907120, 842161320)
