@@ -13,7 +13,7 @@ object Solution {
     val si = StdIn
 
     val numberOfTestCases = si.readInt
-    val testCases = (1 to numberOfTestCases).map(x => StdIn.read).toArray
+    val testCases = (1 to numberOfTestCases).map(x => StdIn.readLong).toArray
 
     val calculator = new EvenFibonacci002
     val result = calculator.compute(testCases)
