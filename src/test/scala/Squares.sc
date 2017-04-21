@@ -17,3 +17,5 @@ calc.computeForN(10)
 
 1 to 10000 sum
 
+var x = BigInt(2)
+x.pow(10000).toString().toCharArray.map(_.toString.toInt).sum
