@@ -1,6 +1,4 @@
 import com.pff.euler.LargestProduct008
-
-import scala.util.Random
 val n1 = 36753
 val n2 = 67535
 val n3 = 75356
