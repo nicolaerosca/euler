@@ -23,4 +23,17 @@ package object euler {
 
   def t(f: => Any) { val start = System.currentTimeMillis; val res = f; println("Time: " + (System.currentTimeMillis - start) + "ms"); res}
 
+  /**
+   * while with return parameter
+   *
+   * @param cond
+   * @param body
+   * @tparam T
+   * @return
+   */
+  def whiley[T](cond : =>Boolean)(body : =>T) : T = {
+    @scala.annotation.tailrec
+    def loop(previous : T) : T = if(cond) loop(body) else previous
+    if(cond) loop(body) else throw new Exception("Loop must be entered at least once.")
+  }
 }
