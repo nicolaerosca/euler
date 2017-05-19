@@ -1,40 +1,37 @@
-import com.pff.euler.LatticePaths015
-import com.pff.euler.CombinationsUtil._
-combinations(4, 2)
-combinations(5, 2)
-combinations(6, 2)
+import com.pff.euler.Permutations
 
-combinations(8, 2)
-combinations(10, 2)
-
-val calc = new LatticePaths015
-val paths22: List[String] = calc.bfs(2,2)
-val paths32: List[String] = calc.bfs(3,2)
-val paths33: List[String] = calc.bfs(3,3)
-paths33.size
-paths33.toSet.size
-
-calc.pathsCount(2,2)
-calc.pathsCount(4,4)
-calc.pathsCount(5,5)
-calc.pathsCount(6,4)
+val prod = 0 :: (2 until 4).scanLeft(1)(_ * _).toList
+val prodWithIdx = prod.zip("abcd".toCharArray.reverse)
+val nth = 3 // 6
+//val el = prod(prod.lastIndexWhere(_ <= nth))
+//var i_1 = nth / el
+//var rest_1 = nth % el
+//val ifExis: Int = prod.lastIndexWhere(_ <= rest_1)
+//val el_1 = prod(ifExis)
+//var i_2 = rest_1 / el_1
+//var rest_2 = rest_1 % el_1
+//prod.lastIndexWhere(_ <= rest_2)
+////val el_2 = prod(prod.lastIndexWhere(_ < rest_2))
+////var i_3 = rest_2 / el_2
+////var rest_3 = rest_2 % el_2
+//(i_1, i_2, rest_2 )
+//"c"
 
 
-// total!/n!/m!
-def combi(n: Int, m: Int): Long = {
-  if (n > m)
-    (m + 1 to (m + n)).product / (1 to m).product
-  else
-    (n + 1 to (m + n)).product / (1 to n).product
-}
-def combi_naive(n: Int, m: Int): Long = {
-    val res: BigInt = (1 to (m + n)).map(BigInt(_)).product / (1 to m).map(BigInt(_)).product / (1 to n).map(BigInt(_)).product
-    res % 1000000007 toLong
-}
-
-
-combi(2,2)
-combi_naive(1,1)
-combi_naive(386,123)
-
-(1 to 112).map(BigInt(_)).product
+val allPerm = "abcd".permutations.toList.sorted
+allPerm(15 + 1)
+Permutations.nthPermutation2("abcd", 0)
+val i: Int = prodWithIdx.lastIndexWhere(_._1 <= nth)
+prodWithIdx.slice(i, prodWithIdx.length)
+val shift = nth / prodWithIdx(i)._1
+prod.scanRight((0, nth))((a, b) => {
+  println(s"divide $a to $b")
+  if(b._2 > 0) {
+    (b._2 / a , b._2 % a)
+  }
+  else {
+    (0, 0)
+  }
+//  (if(b._2 > 0 ) a / b._2 else 0, a%b._2)
+}).dropRight(1).reverse
+6/5
