@@ -16,7 +16,7 @@ class LexicographicPermutations024Test  extends FlatSpec with Matchers {
     val calc = new LexicographicPermutations024
     val allPerm = "abcd".permutations.toList.sorted
 
-    calc.nthPermutation(3l, "abcd") should be (allPerm(3 - 1))
+    calc.nthPermutation(3l, "abcd") should be (allPerm(3))
   }
 
   "For 'abcdefghijklm' nth = 1" should "return 'abcdefghijklm'" in {
@@ -26,7 +26,7 @@ class LexicographicPermutations024Test  extends FlatSpec with Matchers {
 
   "For 'abcdefghijklm' nth = 2" should "return 'abcdefghijkml'" in {
     val calc = new LexicographicPermutations024
-    calc.nthPermutation(3l) should be ("abcdefghijkml")
+    calc.nthPermutation(2l) should be ("abcdefghijkml")
   }
 
 }

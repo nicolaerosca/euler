@@ -64,6 +64,15 @@ object Permutations {
     None
   }
 
+  /**
+   * This solution will check index of permutation and will go to tree branch of element
+   * Index tree is basically every sequence of elements can generate n! combinations so I bucket based on character n buckets
+   * based on these buckets I can check if that specific character has a shift or not.
+   *
+   * @param str
+   * @param nth
+   * @return
+   */
   def nthPermutation2(str: String, nth: Long): Option[String] = {
     // will build a index bucketing: (0-1, d), (1-2, c), (2-6, b), (6-24, a)
     // in this case we search for branch in the tree where index is there
