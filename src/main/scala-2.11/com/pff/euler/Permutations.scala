@@ -69,6 +69,9 @@ object Permutations {
    * Index tree is basically every sequence of elements can generate n! combinations so I bucket based on character n buckets
    * based on these buckets I can check if that specific character has a shift or not.
    *
+   * UPDATE:  https://en.wikipedia.org/wiki/Factorial_number_system
+   * looks like I rediscovered it :), pretty awesome, but it took me 2 weeks
+   *
    * @param str
    * @param nth
    * @return
