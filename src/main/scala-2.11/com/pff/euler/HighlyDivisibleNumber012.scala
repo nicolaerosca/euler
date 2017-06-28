@@ -7,7 +7,7 @@ import scala.collection.mutable.ListBuffer
  */
 class HighlyDivisibleNumber012 {
 
-  val primes = PrimeNumbersUtil.sieveOfEratosthenesBitSet(500400)
+  val primes = PrimeNumbersUtil.sieveOfEratosthenesBitSet(to = 500400)
 
   def getTotalDivisors(n: Long): Int = {
     var count: Int = 0

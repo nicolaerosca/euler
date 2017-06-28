@@ -7,7 +7,7 @@ import scala.collection.mutable
  */
 class SmallestMultiple005() {
 
-  val cache: mutable.Map[Int, List[Int]] = mutable.Map.empty ++ PrimeNumbersUtil.sieveOfEratosthenesBitSet(40).map(prime => (prime, List(prime))).toMap
+  val cache: mutable.Map[Int, List[Int]] = mutable.Map.empty ++ PrimeNumbersUtil.sieveOfEratosthenesBitSet(to = 40).map(prime => (prime, List(prime))).toMap
 
   def computeForN(n: Int): Long = {
     val multiples: mutable.Map[Int, Int] = mutable.Map.empty

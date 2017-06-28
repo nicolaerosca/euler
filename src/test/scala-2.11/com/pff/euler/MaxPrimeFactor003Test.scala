@@ -16,7 +16,7 @@ class MaxPrimeFactor003Test  extends FlatSpec with Matchers {
 
   "Gen primes big numbers" should " finish" in {
     val calc = new MaxPrimeFactor003
-    val res = PrimeNumbersUtil.sieveOfEratosthenesBitSet(1000000000)
+    val res = PrimeNumbersUtil.sieveOfEratosthenesBitSet(to = 1000000000)
 
     res.last should be (999999937)
   }

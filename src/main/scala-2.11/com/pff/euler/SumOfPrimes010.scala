@@ -5,7 +5,7 @@ package com.pff.euler
  */
 class SumOfPrimes010 {
 
-  val primes = PrimeNumbersUtil.sieveOfEratosthenesBitSet(1000010)
+  val primes = PrimeNumbersUtil.sieveOfEratosthenesBitSet(to = 1000010)
 
   def compute(testCases: Array[Int]): Array[Long] = {
     testCases.map(i => primes.takeWhile(_ <= i).foldLeft(0l)(_ + _))

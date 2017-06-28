@@ -5,7 +5,7 @@ package com.pff.euler
  */
 class NthPrime007 {
 
-  val primes = PrimeNumbersUtil.sieveOfEratosthenesBitSet(110000)
+  val primes = PrimeNumbersUtil.sieveOfEratosthenesBitSet(to = 110000)
 
   def compute(testCases: Array[Int]): Array[Int] = {
     testCases.map(i => primes(i - 1))

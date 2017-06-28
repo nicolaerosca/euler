@@ -31,19 +31,19 @@ object PrimeNumbersUtil {
     lst.filter(_ != 0)
   }
 
-  def sieveOfEratosthenesBitSet(n: Int) = {
+  def sieveOfEratosthenesBitSet(from: Int = 2, to: Int ) = {
     val bits = mutable.BitSet.empty
-    val thres = math.sqrt(n).toInt + 1
+    val thres = math.sqrt(to).toInt + 1
     for(i: Int <- 2 to thres) {
       if(!bits(i))
-        for(j <- i * 2 to n by i) {
+        for(j <- i * 2 to to by i) {
           if(!bits(j)) {
             bits.add(j)
           }
         }
     }
 
-    (2 to n).filterNot(bits(_)).toArray
+    (from to to).filterNot(bits(_)).toArray
   }
 
 
@@ -71,7 +71,7 @@ object PrimeNumbersUtil {
    *
    */
   def generateFullReptendPrimes(N: Int) = {
-    val primes = sieveOfEratosthenesBitSet(N)
+    val primes = sieveOfEratosthenesBitSet(to = N)
     primes.filter(p => {
       val num = fermatQuotinet(p)
       if(num.isWhole())
@@ -81,8 +81,8 @@ object PrimeNumbersUtil {
     })
   }
 
-  def generateFullReptendPrimes2(N: Int) = {
-    val primes = sieveOfEratosthenesBitSet(N)
+  def generateFullReptendPrimes2(from: Int = 0, to: Int) = {
+    val primes = sieveOfEratosthenesBitSet(from = from, to = to)
     primes.filter(isCyclicNumber)
   }
 
