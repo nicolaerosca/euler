@@ -48,6 +48,7 @@ class NthFibonacciNum025 {
     testCases.map(i => {
       var iz = i
       while (numberOfDigits.get(iz).isEmpty && iz < 5000) {
+        println(s"incr $iz")
         iz += 1
       }
       numberOfDigits(iz)

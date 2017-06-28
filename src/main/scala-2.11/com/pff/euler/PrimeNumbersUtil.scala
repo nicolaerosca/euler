@@ -47,14 +47,83 @@ object PrimeNumbersUtil {
   }
 
 
+  // NOTE: not sure if is right
   def gaussianPrimes(n: Int): Int = {
     4 * n + 3
   }
 
+  // NOTE: not sure if is right
   def gaussianPrimes2(n: Int): Int = {
     6 * n + 1
   }
+
+  // NOTE: not sure if is right
   def gaussianPrimes3(n: Int): Int = {
     6 * n - 1
+  }
+
+  /**
+   * should generate full reptend primes.
+   *
+   * A full reptend prime is a prime that will return (b**(p-1) - 1) / p a cyclic number
+   *
+   * https://en.wikipedia.org/wiki/Full_reptend_prime
+   *
+   */
+  def generateFullReptendPrimes(N: Int) = {
+    val primes = sieveOfEratosthenesBitSet(N)
+    primes.filter(p => {
+      val num = fermatQuotinet(p)
+      if(num.isWhole())
+        isCyclicNumber_bk(num, p)
+      else
+        false
+    })
+  }
+
+  def generateFullReptendPrimes2(N: Int) = {
+    val primes = sieveOfEratosthenesBitSet(N)
+    primes.filter(isCyclicNumber)
+  }
+
+
+  /**
+   * base 10
+   */
+  def fermatQuotinet(p: Int): BigInt = {
+    val b = BigInt(10)
+    (b.pow(p - 1) - 1)/p
+  }
+
+
+  /**
+   * https://en.wikipedia.org/wiki/Cyclic_number
+   *
+   * this version is good but is very slow
+   */
+  def isCyclicNumber(p: Int): Boolean = {
+    val b = 10
+    var t = 0
+    var r = 1
+    do{
+      t += 1
+      val x = r * b
+      r = x % p
+      // Note that if t ever exceeds p/2, then the number must be cyclic
+    }
+    while (r != 1 && t <= p/2)
+
+    val cyclic = t == p/2 + 1
+    cyclic
+  }
+
+  /**
+   * From properties of CyclicNumbers https://en.wikipedia.org/wiki/Cyclic_number
+   *
+   * When multiplied by their generating prime, results in a sequence of 'base−1' digits (9 in decimal). Decimal 142857 × 7 = 999999.
+   * but not always correct, ex primes: 3, 11
+   */
+  def isCyclicNumber_bk(fermat: BigInt, prime: Int): Boolean = {
+    (fermat * prime).toString().forall(_ == '9')
   }
 }
